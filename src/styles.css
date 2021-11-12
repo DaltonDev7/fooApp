@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+/*BOOTSTRAPS*/
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+
+
+/*FONTS*/
+@font-face {
+    font-family: 'rajdhani-bold';
+    src: url('./assets/fonts/rajdhani/Rajdhani-Bold.ttf');
+}
+
+
+@font-face {
+    font-family: 'rajdhani-semibold';
+    src: url('./assets/fonts/rajdhani/Rajdhani-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'lato-regular';
+    src: url('./assets/fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'lato-bold';
+    src: url('./assets/fonts/Lato/Lato-Bold.ttf');
+}
+
+
+
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0);
+}
+
+
+.btn-generico{
+    background-color: #119da4;
+    color: #fff;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: 'rajdhani-semibold';
+    width: 100%;
+}
+
+
+.btn-agregar{
+    background-color: #119da4;
+    color: #fff;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: 'rajdhani-semibold';
+}
+
+/* estilos para la vista de edit */
+
+.section-edit{
+    margin-top: 28px;
+    width: 500px;
+    margin: auto;
+   }
+   
+   h4{
+       text-align: center;
+       font-family: 'rajdhani-bold';
+   }
+   
+   .section-sub-edit{
+       width: 100%;
+   }
+   
+   

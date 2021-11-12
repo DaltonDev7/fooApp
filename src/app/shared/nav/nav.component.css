@@ -1,0 +1,33 @@
+.navbar-section{
+    background-color:#1C2938 !important;
+    padding:26px;
+    color: #fff;
+    margin-bottom: 22px;
+}
+.titl{
+    cursor: pointer;
+}
+
+h3{
+    font-family: 'rajdhani-bold';
+    margin-bottom: 0px;
+}
+
+.navbar-subsection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-opciones{
+    display: flex;
+    font-family: 'rajdhani-bold';
+}
+
+.op-user{
+    margin-right: 24px;
+}
+
+.user-opciones p{
+    margin-bottom: 0px;
+    cursor: pointer;
+}

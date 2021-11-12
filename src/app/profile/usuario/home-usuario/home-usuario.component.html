@@ -1,0 +1,41 @@
+<app-nav> </app-nav>
+
+
+
+
+<div class="container main-config">
+
+    <div>
+        <button class="btn btn-agregar" [routerLink]="['add-alimentos']">Agregar</button>
+    </div>
+
+
+    <table class="table table-config">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Desayuno</th>
+                <th scope="col">Comida</th>
+                <th scope="col">Cena</th>
+                <th scope="col">Merienda</th>
+                <th scope="col">Comida Extra</th>
+                <th scope="col">Fecha Creacion</th>
+                <th scope="col">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of datafake | paginate: { itemsPerPage: itemByPage, currentPage: pageActual , totalItems: 12 }">
+                <th scope="row">Pan con leche</th>
+                <td>pollo frito, arroz, y habichuela</td>
+                <td>yuca, y huevo</td>
+                <td>Dorito </td>
+                <td> </td>
+                <td>10-02-2021 </td>
+                <td>
+                    <button class="btn btn-success" [routerLink]="['edit-alimentos']">Editar</button>    
+                    <button class="btn btn-danger">Eliminar</button>    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageActual = $event" (pageChange)="pageChanged($event)"></pagination-controls>
+</div>

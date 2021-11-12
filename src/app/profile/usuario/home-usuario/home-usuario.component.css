@@ -1,0 +1,19 @@
+
+.main-config{
+    margin-top: 58px;
+}
+
+.table-config{
+    margin-top: 18px;
+}
+
+.table-config .thead-dark{
+    padding:30px !important;
+    color: #fff;
+   background-color: #1C2938;
+}
+
+
+th{
+    font-family: 'lato-regular';
+}
