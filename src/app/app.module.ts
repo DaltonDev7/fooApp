@@ -6,6 +6,11 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page404/page-not-found.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { toastConfig } from './core/config/toast-config';
+
 
 @NgModule({
   declarations: [
@@ -15,8 +20,11 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(toastConfig),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

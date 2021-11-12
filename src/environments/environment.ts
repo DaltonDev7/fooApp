@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  FoodApi: 'https://localhost:8080/api'
+  FoodApi: 'http://localhost:8000/api'
 };
 
 /*
