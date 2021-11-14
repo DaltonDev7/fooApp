@@ -5,6 +5,10 @@ import { AuthenticationService } from '../core/services/authentication.service';
 import { GenericoService } from '../core/services/generico.service';
 import { ToastrService } from 'ngx-toastr';
 import { Alert } from '../core/enum/alert.enum';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../state/app.state';
+import * as AuthActions from 'src/app/authentication/store/auth.actions'
+
 
 @Component({
   selector: 'app-authentication',
@@ -22,7 +26,8 @@ export class AuthenticationComponent implements OnInit {
     private toast: ToastrService,
     public genericoService: GenericoService,
     public formBuilderService: FormBuilderService,
-    public autenticacionService: AuthenticationService
+    public autenticacionService: AuthenticationService,
+    private store: Store<fromApp.State>
   ) { }
 
   ngOnInit(): void {
@@ -43,18 +48,27 @@ export class AuthenticationComponent implements OnInit {
     let validatePass = this.genericoService.validatePassword(this.registerForm)
 
     if (validatePass) {
-      this.autenticacionService.registrarUsuario(this.registerForm.value).subscribe((data:any) => {
+      this.autenticacionService.registrarUsuario(this.registerForm.value).subscribe((data: any) => {
         this.toast.success(data.msg)
         this.registerForm.reset()
         this.changeView()
       }, (error) => {
-        console.log(error);
-        
         this.toast.error(error.error.msg)
       })
     }
 
   }
+
+
+  login() {
+    let valiData: boolean = this.genericoService.validateLoginForm(this.loginForm)
+
+    if (valiData) {
+      this.store.dispatch(new AuthActions.LoginStart(this.loginForm.value))
+    }
+
+  }
+
 
 }
 

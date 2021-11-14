@@ -10,6 +10,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { toastConfig } from './core/config/toast-config';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducer } from './state/app.state';
+import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './authentication/store/auth.effects';
+import { JwtModule } from '@auth0/angular-jwt';
+import { tokenGetter } from './core/config/jwt-congif';
+import { TokenInterceptorService } from './core/interceptors/token-interceptor.service';
 
 
 @NgModule({
@@ -24,9 +33,28 @@ import { toastConfig } from './core/config/toast-config';
     AppRoutingModule,
     HttpClientModule,
     ToastrModule.forRoot(toastConfig),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducer),
+    EffectsModule.forRoot([AuthEffects]),
+    StoreDevtoolsModule.instrument({
+      name: 'FoodApp DevTools',
+      maxAge: 25,
+      logOnly: environment.production
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+        // whitelistedDomains: ['http://localhost:4200']
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
