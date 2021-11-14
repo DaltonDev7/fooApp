@@ -17,7 +17,7 @@ export class LoginStart implements Action {
 
 export class LoginSuccess implements Action {
     readonly type = LOGIN_SUCCESS;
-    constructor(public payload: Usuario, public redirect: boolean) { }
+    constructor(public payload: Usuario, public redirect: boolean, public iniciarSesionFirstTime?:boolean) { }
 }
 
 

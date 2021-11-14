@@ -48,7 +48,7 @@ export class AuthEffects {
                         //removemos el token existente y ponemos el nuevo
                         localStorage.removeItem(tokenName);
                         localStorage.setItem(tokenName, data.token)
-                        return this.storeAuth.dispatch(new authActions.LoginSuccess(data.Usuario, true))
+                        return this.storeAuth.dispatch(new authActions.LoginSuccess(data.Usuario, true, true))
                     }),
                     catchError((error) => {
                         return of(this.storeAuth.dispatch(new authActions.LoginError(error)))
@@ -88,10 +88,9 @@ export class AuthEffects {
                 console.log(data);
 
                 if (data.redirect) {
-
-                    console.log(data.redirect);
-
-                    this.router.navigate(['/']);
+                    if(data.iniciarSesionFirstTime){
+                        this.router.navigate(['/']);
+                    }
                 }
                 else {
                     this.toastr.error("Ha ocurrido un error. Por favor contacte con soporte técnico.");

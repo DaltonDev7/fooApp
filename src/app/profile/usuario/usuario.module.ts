@@ -6,7 +6,8 @@ import { EditAlimentosComponent } from './edit-alimentos/edit-alimentos.componen
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import { AddAlimentosComponent } from './add-alimentos/add-alimentos.component';
 import { SharedModule } from '../../shared/shared.module';
-
+import { NgbModule, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     CommonModule,
     UsuarioRoutingModule,
-    SharedModule
+    SharedModule,
+    // NgbModule,
+    // NgbNavOutlet
   ]
 })
 export class UsuarioModule { }
