@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NavComponent } from './nav/nav.component'
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -12,12 +13,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
+
+    RouterModule.forChild([]),
     NgxPaginationModule
   ],
   exports: [
     NgxPaginationModule,
-    HttpClientModule,
     NavComponent
   ]
 })

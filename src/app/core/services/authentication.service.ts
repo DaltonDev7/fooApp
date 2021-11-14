@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { tokenName } from '../constants/auth-token';
 import { LoginSuccessDTO } from '../models/DTO/login-success.model';
 import { RegistroDTO } from '../models/DTO/reigstro-dto.model';
 import { Usuario } from '../models/usuario.model';
@@ -19,8 +20,13 @@ export class AuthenticationService {
     return this.http.post<RegistroDTO>(`${environment.FoodApi}/Usuarios/Save`, user)
   }
 
-  public SignIn(usuario : Usuario) : Observable<LoginSuccessDTO>{
+  public SignIn(usuario: Usuario): Observable<LoginSuccessDTO> {
     return this.http.post(`${environment.FoodApi}/Login/SignIn`, usuario)
+  }
+
+  public logout(): void {
+    localStorage.removeItem(tokenName)
+    this.router.navigate(['/login']);
   }
 
 }

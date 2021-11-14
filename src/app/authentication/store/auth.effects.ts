@@ -123,7 +123,7 @@ export class AuthEffects {
                     return this.usuarioService.getUsuario().pipe(
                         map((user) => {
                             console.log(user);
-                            
+
                             return this.storeAuth.dispatch(new authActions.LoginSuccess(user.Usuario, true))
                         }),
                         catchError((error) => {
@@ -156,21 +156,24 @@ export class AuthEffects {
         { dispatch: false }
     )
 
+
+    logout = createEffect(
+        () => this.action$.pipe(
+            ofType(authActions.LOGOUT),
+            tap(() => {
+                this.autenticacionService.logout()
+            })
+        ),
+        { dispatch: false }
+    )
+
+
 }
 
 
 
 
 
-//     logout = createEffect(
-//         () => this.action$.pipe(
-//             ofType(authActions.LOGOUT),
-//             tap(() => {
-//                 this.AuthService.logout()
-//             })
-//         ),
-//         { dispatch: false }
-//     )
 
 
 

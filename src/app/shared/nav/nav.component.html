@@ -1,16 +1,16 @@
 <nav class="navbar navbar-dark navbar-section">
     <div class="container navbar-subsection">
-        <div (click)="home()" class="titl">
+        <div  [routerLink]="['/']" class="titl">
             <h3 >FoodApp</h3>
         </div>
     
         <div class="user-opciones">
     
-            <div class="op-user">
+            <div class="op-user" routerLink="/edit-perfil">
                 <p>Editar perfil</p>
             </div>
 
-            <div class="op-user">
+            <div class="op-user" (click)="logout()">
                  <p>Salir</p> 
             </div>
         </div>

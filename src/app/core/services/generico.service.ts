@@ -28,7 +28,8 @@ export class GenericoService {
     let usuario = loginForm.get('UserName')?.value
     let passWord = loginForm.get('PassWord')?.value
 
-    if (usuario == '' || passWord == '') {
+    if (usuario == null || passWord == null) {
+
       this.toast.warning('Aun faltan campos por llenar')
       return false;
     }

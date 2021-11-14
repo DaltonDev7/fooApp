@@ -54,6 +54,7 @@ export function AuthenticationReducer(state = initialState, action: AuthActions.
                 ...state,
                 UserActual: null,
                 loading: false,
+                redirect:false
             }
             break;
         default:
