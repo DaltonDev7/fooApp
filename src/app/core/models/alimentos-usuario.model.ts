@@ -1,5 +1,6 @@
 
 export interface AlimentosUsuario {
+    Id?:number;
     Desayuno?:string;
     Comida?:string;
     Cena?:string;

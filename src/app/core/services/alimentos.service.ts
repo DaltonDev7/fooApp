@@ -19,6 +19,10 @@ export class AlimentosService {
     return this.http.post(`${environment.FoodApi}/Alimentos/GetByUser`, { page })
   }
 
+  public getAlimentoByUser(id:number) {
+    return this.http.get(`${environment.FoodApi}/Alimentos/GetAlimentoById/${id}`)
+  }
+
   public update(payload: AlimentosUsuario) {
     return this.http.put(`${environment.FoodApi}/Alimentos/Update`, payload)
   }

@@ -6,6 +6,7 @@ import { EditAlimentosComponent } from './edit-alimentos/edit-alimentos.componen
 import { AddAlimentosComponent } from './add-alimentos/add-alimentos.component';
 import { EditPerfilComponent } from './edit-perfil/edit-perfil.component';
 import { GetAlimentoUser } from 'src/app/core/resolvers/get-alimentos-user.resolver';
+import { EditAlimentoUserResolver } from 'src/app/core/resolvers/edit-alimentos-user.resolver';
 
 
 
@@ -18,8 +19,11 @@ const routes: Routes = [
     }
   },
   {
-    path: 'edit-alimentos',
-    component: EditAlimentosComponent
+    path: 'edit-alimentos/:id',
+    component: EditAlimentosComponent,
+    resolve : {
+      alimentoUser  : EditAlimentoUserResolver
+    }
   },
   {
     path: 'add-alimentos',

@@ -26,14 +26,20 @@ export class FormBuilderService {
 
   public getAlimentosForm(): FormGroup {
     return this.fb.group({
+      Usuario: [null, [Validators.required]],
+      ...this.getEditAlimentosForm().controls
+    })
+  }
+
+  public getEditAlimentosForm(): FormGroup {
+    return this.fb.group({
       Desayuno: [null],
       Comida: [null],
       Cena: [null],
       Merienda: [null],
       ComidaExtra: [null],
-      Usuario: [null, [Validators.required]],
     })
-  }
+  } 
 
 
 
