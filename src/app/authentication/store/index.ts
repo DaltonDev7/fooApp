@@ -9,3 +9,8 @@ export const getCurrentUser = createSelector(
     state => state.UserActual
 );
 
+export const getIdUsuarioAuth = createSelector(
+    getUserFeatureStatus,
+    state => state.UserActual.Id
+);
+

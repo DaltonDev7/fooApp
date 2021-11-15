@@ -24,5 +24,17 @@ export class FormBuilderService {
     })
   }
 
+  public getAlimentosForm(): FormGroup {
+    return this.fb.group({
+      Desayuno: [null],
+      Comida: [null],
+      Cena: [null],
+      Merienda: [null],
+      ComidaExtra: [null],
+      IdUsuario: [null, [Validators.required]],
+    })
+  }
+
+
 
 }

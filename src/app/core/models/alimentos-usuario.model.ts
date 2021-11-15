@@ -5,5 +5,6 @@ export interface AlimentosUsuario {
     Cena?:string;
     Merienda?:string;
     ComidaExtra?:string;
+    IdUsuario?:number;
     FechaCreacion?:Date;
 }

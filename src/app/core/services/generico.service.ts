@@ -33,8 +33,14 @@ export class GenericoService {
       this.toast.warning('Aun faltan campos por llenar')
       return false;
     }
-    
     return true
+  }
+
+  public validateCamposNull(alimentosForm : FormGroup){
+    for(let control in alimentosForm.controls ){
+      console.log(control);
+      
+    }
   }
 
 }
