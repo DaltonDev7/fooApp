@@ -5,12 +5,16 @@ import { HomeUsuarioComponent } from './home-usuario/home-usuario.component';
 import { EditAlimentosComponent } from './edit-alimentos/edit-alimentos.component';
 import { AddAlimentosComponent } from './add-alimentos/add-alimentos.component';
 import { EditPerfilComponent } from './edit-perfil/edit-perfil.component';
+import { GetAlimentoUser } from 'src/app/core/resolvers/get-alimentos-user.resolver';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeUsuarioComponent
+    component: HomeUsuarioComponent,
+    resolve :{
+      alimentos : GetAlimentoUser
+    }
   },
   {
     path: 'edit-alimentos',

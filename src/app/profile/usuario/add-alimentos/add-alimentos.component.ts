@@ -38,6 +38,7 @@ export class AddAlimentosComponent implements OnInit {
 
   saveAlimento(){
     let validCampo = this.genericoService.validateCamposNull(this.alimentosForm)
+
      if(validCampo){
       this.alimentosForm.patchValue({'IdUsuario' : this.idUsuario})
       this.alimentosService.save(this.alimentosForm.value).subscribe((data)=>{
@@ -47,6 +48,7 @@ export class AddAlimentosComponent implements OnInit {
         this.toast.success(Alert.alimentoFail)
       })
      }
+     
   }
 
 }
