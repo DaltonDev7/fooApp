@@ -24,7 +24,7 @@ export class GenericoService {
     }
   }
 
-  public validateLoginForm(loginForm: FormGroup) : boolean {
+  public validateLoginForm(loginForm: FormGroup): boolean {
     let usuario = loginForm.get('UserName')?.value
     let passWord = loginForm.get('PassWord')?.value
 
@@ -36,11 +36,19 @@ export class GenericoService {
     return true
   }
 
-  public validateCamposNull(alimentosForm : FormGroup){
-    for(let control in alimentosForm.controls ){
-      console.log(control);
-      
+  public validateCamposNull(alimentosForm: FormGroup) {
+
+    let campoIsNull: boolean = false;
+    for (let control in alimentosForm.controls) {
+      if (alimentosForm.get(control).value != null) {
+        campoIsNull = true;
+      } 
     }
+
+    if(!campoIsNull){
+      this.toast.warning(Alert.alimentosCamposLlenar)
+    }
+    return campoIsNull;
   }
 
 }

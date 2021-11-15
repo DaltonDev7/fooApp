@@ -8,6 +8,7 @@ import { AddAlimentosComponent } from './add-alimentos/add-alimentos.component';
 import { SharedModule } from '../../shared/shared.module';
 import { NgbModule, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     UsuarioRoutingModule,
     SharedModule,
+    FormsModule
     // NgbModule,
     // NgbNavOutlet
   ]

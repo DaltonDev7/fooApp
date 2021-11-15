@@ -4,6 +4,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NavComponent } from './nav/nav.component'
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     NgxPaginationModule,
-    NavComponent
+    NavComponent,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

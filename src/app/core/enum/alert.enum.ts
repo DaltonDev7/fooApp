@@ -6,6 +6,7 @@ export enum Alert{
     
     SessionSuccess = "Sesion Iniciada",
     passwordNoCoinciden = "Las contraseñas no coinciden",
-
-    alimentosCamposLlenar = "Debes completar aunque sea una campo"
+    alimentoSuccess = "Se ha guardado correctamente",
+    alimentoFail = "No se ha podido guardar el registo",
+    alimentosCamposLlenar = "Debes completar aunque sea un campo"
 }
