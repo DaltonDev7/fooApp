@@ -6,4 +6,6 @@ export enum Alert{
     
     SessionSuccess = "Sesion Iniciada",
     passwordNoCoinciden = "Las contraseñas no coinciden",
+
+    alimentosCamposLlenar = "Debes completar aunque sea una campo"
 }
