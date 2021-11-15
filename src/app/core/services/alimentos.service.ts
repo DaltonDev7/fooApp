@@ -14,8 +14,9 @@ export class AlimentosService {
     return this.http.post(`${environment.FoodApi}/Alimentos/Save`, payload)
   }
 
-  public getAlimentosByUser() {
-    return this.http.get(`${environment.FoodApi}/Alimentos/GetByUser`)
+  public getAlimentosByUser(pagePaginacion = 1) {
+    let page = pagePaginacion
+    return this.http.post(`${environment.FoodApi}/Alimentos/GetByUser`, { page })
   }
 
   public update(payload: AlimentosUsuario) {

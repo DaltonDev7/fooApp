@@ -23,13 +23,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of datafake | paginate: { itemsPerPage: itemByPage, currentPage: pageActual , totalItems: 12 }">
-                <th scope="row">Pan con leche</th>
-                <td>pollo frito, arroz, y habichuela</td>
-                <td>yuca, y huevo</td>
-                <td>Dorito </td>
-                <td> </td>
-                <td>10-02-2021 </td>
+            <tr *ngFor="let item of alimentos | paginate: { itemsPerPage: itemByPage, currentPage: pageActual , totalItems: totalRegistros }">
+                <th scope="row">{{item.Desayuno}}</th>
+                <td>{{item.Comida}}</td>
+                <td>{{item.Cena}}</td>
+                <td>{{item.Merienda}} </td>
+                <td>{{item.ComidaExtra}} </td>
+                <td>{{item.FechaCreacion | date}} </td>
                 <td>
                     <button class="btn btn-success" [routerLink]="['edit-alimentos']">Editar</button>    
                     <button class="btn btn-danger">Eliminar</button>    

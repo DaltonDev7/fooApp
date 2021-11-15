@@ -8,6 +8,7 @@ import { EditPerfilComponent } from './edit-perfil/edit-perfil.component';
 import { GetAlimentoUser } from 'src/app/core/resolvers/get-alimentos-user.resolver';
 
 
+
 const routes: Routes = [
   {
     path: '',

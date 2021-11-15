@@ -40,12 +40,16 @@ export class AddAlimentosComponent implements OnInit {
     let validCampo = this.genericoService.validateCamposNull(this.alimentosForm)
 
      if(validCampo){
-      this.alimentosForm.patchValue({'IdUsuario' : this.idUsuario})
+      this.alimentosForm.patchValue({'Usuario' : this.idUsuario})
       this.alimentosService.save(this.alimentosForm.value).subscribe((data)=>{
+        console.log(data);
+        
         this.toast.success(Alert.alimentoSuccess)
         this.alimentosForm.reset()
       },(error)=>{
-        this.toast.success(Alert.alimentoFail)
+        console.log(error);
+        
+        this.toast.error(error.error.msg)
       })
      }
      

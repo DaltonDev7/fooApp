@@ -31,7 +31,7 @@ export class FormBuilderService {
       Cena: [null],
       Merienda: [null],
       ComidaExtra: [null],
-      IdUsuario: [null, [Validators.required]],
+      Usuario: [null, [Validators.required]],
     })
   }
 

@@ -43,7 +43,7 @@ export class AuthEffects {
 
                 return this.autenticacionService.SignIn(user).pipe(
                     map((data) => {
-                        console.log(data);
+                       
 
                         //removemos el token existente y ponemos el nuevo
                         localStorage.removeItem(tokenName);
@@ -67,7 +67,7 @@ export class AuthEffects {
         () => this.action$.pipe(
             ofType(authActions.LOGIN_ERROR),
             tap((data: authActions.LoginError) => {
-                console.log(data);
+             
 
                 if (data.payload) {
                     this.toastr.error(data.payload.error.msg)
@@ -85,8 +85,7 @@ export class AuthEffects {
         () => this.action$.pipe(
             ofType(authActions.LOGIN_SUCCESS),
             tap((data: authActions.LoginSuccess) => {
-                console.log(data);
-
+          
                 if (data.redirect) {
                     if(data.iniciarSesionFirstTime){
                         this.router.navigate(['/']);
@@ -121,7 +120,7 @@ export class AuthEffects {
                 if (!tokenExpired) {
                     return this.usuarioService.getUsuario().pipe(
                         map((user) => {
-                            console.log(user);
+                    
 
                             return this.storeAuth.dispatch(new authActions.LoginSuccess(user.Usuario, true))
                         }),
