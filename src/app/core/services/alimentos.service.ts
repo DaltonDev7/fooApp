@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AlimentosUsuario } from '../models/alimentos-usuario.model';
+import { BuscadorPaginacion } from '../models/buscador-paginacion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AlimentosService {
     return this.http.post(`${environment.FoodApi}/Alimentos/GetByUser`, { page })
   }
 
-  public getAlimentoByUser(id:number) {
+  public getAlimentoByUser(id: number) {
     return this.http.get(`${environment.FoodApi}/Alimentos/GetAlimentoById/${id}`)
   }
 
@@ -30,5 +31,12 @@ export class AlimentosService {
   public deleteById(idAlimento: number) {
     return this.http.delete(`${environment.FoodApi}/Alimentos/Delete/${idAlimento}`)
   }
+
+  public buscadorAlimentos(campoBuscador: string, page: number = 1) {
+    let data: BuscadorPaginacion = { campoBuscador, page }
+    return this.http.post(`${environment.FoodApi}/Alimentos/BuscadorPaginacion`, data)
+  }
+
+
 
 }

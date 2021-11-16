@@ -5,8 +5,24 @@
 
 <div class="container main-config">
 
-    <div>
-        <button class="btn btn-agregar" [routerLink]="['add-alimentos']">Agregar</button>
+    <div class="section-add-search">
+        <div>
+            <button class="btn btn-agregar" [routerLink]="['add-alimentos']">Agregar</button>
+        </div>
+
+        <div class="section-buscar">
+            <form class="section-input" [formGroup]="buscadorForm">
+                <div >
+                    <input type="text" placeholder="Buscar aqui..." class="form-control" formControlName="campoBuscador">
+                </div>
+            </form>
+            <div class="section-button-buscar">
+                <button class="btn btn-primary" type="button" [disabled]="!buscadorForm.valid"  (click)="buscador()">
+                    <span *ngIf="showButtonLoading" class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
+                    <span class="sr-only">Buscar</span>
+                  </button>
+            </div>
+        </div>
     </div>
 
 
@@ -23,7 +39,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of alimentos | paginate: { itemsPerPage: itemByPage, currentPage: pageActual , totalItems: totalRegistros }">
+            <tr
+                *ngFor="let item of alimentos | paginate: { itemsPerPage: itemByPage, currentPage: pageActual , totalItems: totalRegistros }">
                 <td>{{item.Desayuno}}</td>
                 <td>{{item.Comida}}</td>
                 <td>{{item.Cena}}</td>
@@ -31,15 +48,15 @@
                 <td>{{item.ComidaExtra}} </td>
                 <td>{{item.FechaCreacion | date}} </td>
                 <td>
-                    <button class="btn btn-success" [routerLink]="['edit-alimentos', item?.Id]">Editar</button>    
-                    <button 
-                    [swal]="{title: '¿Realmente quieres eliminar este registro?'}"
-                    class="btn btn-danger" 
-                    (confirm)="delete(item.Id)" >
-                    Eliminar</button>    
+                    <button class="btn btn-success" [routerLink]="['edit-alimentos', item?.Id]">Editar</button>
+                    <button [swal]="{title: '¿Realmente quieres eliminar este registro?'}" class="btn btn-danger"
+                        (confirm)="delete(item.Id)">
+                        Eliminar</button>
                 </td>
             </tr>
         </tbody>
     </table>
     <pagination-controls (pageChange)="pageActual = $event" (pageChange)="pageChanged($event)"></pagination-controls>
 </div>
+
+
