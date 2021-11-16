@@ -16,5 +16,15 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${environment.FoodApi}/Usuarios/GetDataUser`)
   }
 
+  public updateUsuario(usuario: Usuario): Observable<any> {
+    return this.http.put<Usuario>(`${environment.FoodApi}/Usuarios/Update`, usuario)
+  }
+
+  public updatePassword(usuario: Usuario): Observable<any> {
+    return this.http.put<Usuario>(`${environment.FoodApi}/Usuarios/Update`, usuario)
+  }
+
+
+
 
 }

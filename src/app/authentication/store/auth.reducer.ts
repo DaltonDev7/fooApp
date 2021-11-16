@@ -57,6 +57,13 @@ export function AuthenticationReducer(state = initialState, action: AuthActions.
                 redirect:false
             }
             break;
+
+        case AuthActions.UPDATE_USER:
+            return {
+                ...state,
+                UserActual : action.payload
+            }
+        break;
         default:
             return state;
     }

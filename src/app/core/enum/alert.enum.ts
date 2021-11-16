@@ -2,7 +2,7 @@
 
 export enum Alert{
     usuarioRegistrado = "Registrado correctamente",
-    updateUserSuccess = "Perfil Actualizado correctamente.",
+    updateUserSuccess = "UserName Actualizado correctamente.",
 
     aliementoDelete = "Registro eliminado correctamente",
     aliementoDeleteFail = "No se puedo eliminar el registro",

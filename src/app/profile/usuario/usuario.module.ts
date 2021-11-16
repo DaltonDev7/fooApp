@@ -23,6 +23,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     CommonModule,
     UsuarioRoutingModule,
     SharedModule,
+    NgbModule,
     SweetAlert2Module.forChild(),
     FormsModule
     // NgbModule,

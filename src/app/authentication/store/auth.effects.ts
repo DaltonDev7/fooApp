@@ -15,6 +15,7 @@ import { UsuarioService } from '../../core/services/usuario.service';
 import { Usuario } from '../../core/models/usuario.model';
 import * as fromApp from '../../state/app.state'
 import { UserState } from "./auth.reducer";
+import { Alert } from "src/app/core/enum/alert.enum";
 
 
 @Injectable()
@@ -43,7 +44,7 @@ export class AuthEffects {
 
                 return this.autenticacionService.SignIn(user).pipe(
                     map((data) => {
-                       
+
 
                         //removemos el token existente y ponemos el nuevo
                         localStorage.removeItem(tokenName);
@@ -67,7 +68,7 @@ export class AuthEffects {
         () => this.action$.pipe(
             ofType(authActions.LOGIN_ERROR),
             tap((data: authActions.LoginError) => {
-             
+
 
                 if (data.payload) {
                     this.toastr.error(data.payload.error.msg)
@@ -85,9 +86,9 @@ export class AuthEffects {
         () => this.action$.pipe(
             ofType(authActions.LOGIN_SUCCESS),
             tap((data: authActions.LoginSuccess) => {
-          
+
                 if (data.redirect) {
-                    if(data.iniciarSesionFirstTime){
+                    if (data.iniciarSesionFirstTime) {
                         this.router.navigate(['/']);
                     }
                 }
@@ -120,7 +121,7 @@ export class AuthEffects {
                 if (!tokenExpired) {
                     return this.usuarioService.getUsuario().pipe(
                         map((user) => {
-                    
+
 
                             return this.storeAuth.dispatch(new authActions.LoginSuccess(user.Usuario, true))
                         }),
@@ -166,6 +167,23 @@ export class AuthEffects {
     )
 
 
+    updateUser = createEffect(
+        () => this.action$.pipe(
+            ofType(authActions.UPDATE_USER),
+            tap((data: authActions.UpdateUser) => {
+
+                return this.usuarioService.updateUsuario(data.payload).subscribe(() => {
+                    this.toastr.success(Alert.updateUserSuccess)
+                }, () => {
+                    this.toastr.error("Algo salio mal, intentalo de nuevo")
+                })
+            })
+
+        ),
+        { dispatch: false }
+    )
+
+
 }
 
 
@@ -180,21 +198,7 @@ export class AuthEffects {
 
 
 
-//     updateUser = createEffect(
-//         () => this.action$.pipe(
-//             ofType(authActions.UPDATE_USER),
-//             tap((data: authActions.UpdateUser) => {
 
-//                 return this.usuarioService.updateUser(data.payload).subscribe(() => {
-//                     this.toastr.success(Alert.updateUserSuccess)
-//                 }, () => {
-//                     this.toastr.error("Algo salio mal, intentalo de nuevo")
-//                 })
-//             })
-
-//         ),
-//         { dispatch: false }
-//     )
 
 
 

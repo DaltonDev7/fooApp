@@ -1,7 +1,7 @@
 
 
 .section-edit{
- margin-top: 28px;
+ margin-top: 34px;
  width: 500px;
  margin: auto;
 }
@@ -9,9 +9,15 @@
 h4{
     text-align: center;
     font-family: 'rajdhani-bold';
+    margin-bottom: 24px;
 }
 
 .section-sub-edit{
-    width: 100%;
+    width: 500px;
+    margin: auto;
 }
 
+
+.section-editPerfil{
+    margin-left: 32px;
+}

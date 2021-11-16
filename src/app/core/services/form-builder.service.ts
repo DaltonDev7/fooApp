@@ -39,7 +39,22 @@ export class FormBuilderService {
       Merienda: [null],
       ComidaExtra: [null],
     })
-  } 
+  }
+
+  public getEditUserForm() {
+    return this.fb.group({
+      Id: [null],
+      UserName: [null, [Validators.required, Validators.minLength(3)]]
+    })
+  }
+
+  public getPasswordForm() {
+    return this.fb.group({
+      PassWordActual:  [null, [Validators.required, Validators.minLength(5)]],
+      PassWord: [null, [Validators.required, Validators.minLength(5)]],
+      ConfirmPassWord: [null, [Validators.required, Validators.minLength(5)]]
+    })
+  }
 
 
 

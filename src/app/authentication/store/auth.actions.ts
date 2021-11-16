@@ -8,6 +8,7 @@ export const LOGIN_ERROR = '[Login] LOGIN_ERROR';
 export const AUTO_LOGIN = '[Login] AUTO_LOGIN';
 export const LOGOUT = '[Login] LOGOUT';
 export const AUTO_LOGIN_ERROR = '[Login] AUTO_LOGIN_ERROR';
+export const UPDATE_USER = '[Login] UPDATE_USER';
 
 
 export class LoginStart implements Action {
@@ -41,11 +42,18 @@ export class AutoLoginError implements Action {
     constructor(public payload?: string) { }
 }
 
+export class UpdateUser implements Action {
+    readonly type = UPDATE_USER
+    constructor(public payload: Usuario) { }
+}
+
+
 export type Actions =
     LoginStart |
     LoginSuccess |
     LoginError |
     AutoLogin |
+    UpdateUser |
     Logout |
     AutoLoginError;
 
