@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of alimentos | paginate: { itemsPerPage: itemByPage, currentPage: pageActual , totalItems: totalRegistros }">
-                <th>{{item.Desayuno}}</th>
+                <td>{{item.Desayuno}}</td>
                 <td>{{item.Comida}}</td>
                 <td>{{item.Cena}}</td>
                 <td>{{item.Merienda}} </td>
@@ -32,7 +32,11 @@
                 <td>{{item.FechaCreacion | date}} </td>
                 <td>
                     <button class="btn btn-success" [routerLink]="['edit-alimentos', item?.Id]">Editar</button>    
-                    <button class="btn btn-danger">Eliminar</button>    
+                    <button 
+                    [swal]="{title: '¿Realmente quieres eliminar este registro?'}"
+                    class="btn btn-danger" 
+                    (confirm)="delete(item.Id)" >
+                    Eliminar</button>    
                 </td>
             </tr>
         </tbody>

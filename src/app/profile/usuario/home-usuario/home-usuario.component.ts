@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AlimentosPaginacionDTO } from 'src/app/core/models/DTO/alimentos-paginacion-dto.model';
 import { DataPaginacion } from 'src/app/core/models/DTO/data-paginacion.model';
 import { AlimentosService } from '../../../core/services/alimentos.service';
+import { ToastrService } from 'ngx-toastr';
+import { Alert } from 'src/app/core/enum/alert.enum';
 
 @Component({
   selector: 'app-home-usuario',
@@ -17,12 +19,17 @@ export class HomeUsuarioComponent implements OnInit {
   itemByPage: number = 7
   totalRegistros: number;
 
-  constructor(private activedRouted: ActivatedRoute, private alimentoService: AlimentosService) { }
+  noPage: number = 1
+
+  constructor(
+    private toast: ToastrService,
+    private activedRouted: ActivatedRoute,
+    private alimentoService: AlimentosService
+  ) { }
 
   ngOnInit(): void {
 
     this.activedRouted.data.subscribe((data: DataPaginacion) => {
-      console.log(data);
 
       this.alimentos = data.alimentos.data
       this.itemByPage = data.alimentos.itemsByPage
@@ -34,8 +41,22 @@ export class HomeUsuarioComponent implements OnInit {
   }
 
   pageChanged(noPage: any) {
-    console.log(noPage);
-    this.alimentoService.getAlimentosByUser(noPage).subscribe((data:AlimentosPaginacionDTO) => {
+    this.noPage = noPage
+    this.setDataPagination();
+  }
+
+  delete(idAlimento) {
+    this.alimentoService.deleteById(idAlimento).subscribe(() => {
+      
+      this.toast.info(Alert.aliementoDelete)
+      this.setDataPagination();
+    }, (error) => {
+      this.toast.error(Alert.aliementoDeleteFail)
+    })
+  }
+
+  private setDataPagination() {
+    this.alimentoService.getAlimentosByUser(this.noPage).subscribe((data: AlimentosPaginacionDTO) => {
 
       this.alimentos = data.data
       this.itemByPage = data.itemsByPage

@@ -3,6 +3,10 @@
 export enum Alert{
     usuarioRegistrado = "Registrado correctamente",
     updateUserSuccess = "Perfil Actualizado correctamente.",
+
+    aliementoDelete = "Registro eliminado correctamente",
+    aliementoDeleteFail = "No se puedo eliminar el registro",
+
     
     SessionSuccess = "Sesion Iniciada",
     passwordNoCoinciden = "Las contraseñas no coinciden",

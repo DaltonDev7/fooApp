@@ -9,6 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { NgbModule, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     UsuarioRoutingModule,
     SharedModule,
+    SweetAlert2Module.forChild(),
     FormsModule
     // NgbModule,
     // NgbNavOutlet

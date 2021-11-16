@@ -24,14 +24,9 @@ export class NegateauthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.store.pipe(select(getCurrentUser)).pipe(map((user) => {
 
-     //   console.log(user);
-       
-        
         if (!user) {
-          console.log(user);
           return this.router.createUrlTree(['/login']);
         } else {
-          console.log(user);
           return true
         }
     }))

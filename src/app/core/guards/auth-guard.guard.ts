@@ -21,13 +21,9 @@ export class AuthGuardGuard implements CanActivate {
 
 
     return this.store.pipe(select(getCurrentUser)).pipe(map((user)=>{
-      console.log(user);
-
-      let data =  false
       
       if(!user){
-        console.log('algo');
-        
+      
         return true
       }else{
         return this.router.createUrlTree(['/'])
