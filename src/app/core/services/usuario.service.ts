@@ -21,7 +21,7 @@ export class UsuarioService {
   }
 
   public updatePassword(usuario: Usuario): Observable<any> {
-    return this.http.put<Usuario>(`${environment.FoodApi}/Usuarios/Update`, usuario)
+    return this.http.post<Usuario>(`${environment.FoodApi}/Usuarios/UpdatePassword`, usuario)
   }
 
 

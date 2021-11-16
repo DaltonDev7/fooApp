@@ -52,7 +52,7 @@ export class FormBuilderService {
     return this.fb.group({
       PassWordActual:  [null, [Validators.required, Validators.minLength(5)]],
       PassWord: [null, [Validators.required, Validators.minLength(5)]],
-      ConfirmPassWord: [null, [Validators.required, Validators.minLength(5)]]
+      PassWordConfirm: [null, [Validators.required, Validators.minLength(5)]]
     })
   }
 

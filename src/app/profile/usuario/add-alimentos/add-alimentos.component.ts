@@ -47,8 +47,6 @@ export class AddAlimentosComponent implements OnInit {
         this.toast.success(Alert.alimentoSuccess)
         this.alimentosForm.reset()
       },(error)=>{
-        console.log(error);
-        
         this.toast.error(error.error.msg)
       })
      }

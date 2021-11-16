@@ -174,8 +174,8 @@ export class AuthEffects {
 
                 return this.usuarioService.updateUsuario(data.payload).subscribe(() => {
                     this.toastr.success(Alert.updateUserSuccess)
-                }, () => {
-                    this.toastr.error("Algo salio mal, intentalo de nuevo")
+                }, (error) => {
+                    this.toastr.error(error.error.msg)
                 })
             })
 
