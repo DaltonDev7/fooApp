@@ -34,11 +34,10 @@ export class HomeUsuarioComponent implements OnInit {
     private alimentoService: AlimentosService
   ) { }
 
+
   ngOnInit(): void {
 
     this.buscadorForm = this.formBuilderService.getBuscadorForm()
-
-
     this.activedRouted.data.subscribe((data: DataPaginacion) => {
 
       this.alimentos = data.alimentos.data
