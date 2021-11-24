@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { NgxSpinnerService } from 'ngx-spinner';
 import * as fromApp from './../app/state/app.state';
 
 import * as authActions from './authentication/store/auth.actions'
@@ -13,11 +12,11 @@ import * as authActions from './authentication/store/auth.actions'
 })
 export class AppComponent {
 
-
+  showSpinner:boolean = false
   title = 'sistemaalimentos';
 
 
-  constructor(private router: Router,private store : Store<fromApp.State>, private spinner: NgxSpinnerService) { 
+  constructor(private router: Router,private store : Store<fromApp.State>) { 
 
     this.store.dispatch(new authActions.AutoLogin())
 
@@ -25,8 +24,8 @@ export class AppComponent {
     this.router.events.subscribe((event)=>{
       switch(true){
         case event instanceof NavigationStart:{
-          this.spinner.show();
-    
+  
+          this.showSpinner = true
         
           break;
         }
@@ -34,7 +33,8 @@ export class AppComponent {
         case event instanceof NavigationCancel:
         case event instanceof NavigationError: 
 
-              this.spinner.hide();
+            this.showSpinner = false
+        
          break;
         
         default:

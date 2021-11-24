@@ -22,7 +22,7 @@ import { TokenInterceptorService } from './core/interceptors/token-interceptor.s
 import { NgbModule, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from './shared/shared.module';
-import { NgxSpinnerModule } from "ngx-spinner";
+
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgxSpinnerModule,
     SharedModule,
     HttpClientModule,
     ToastrModule.forRoot(toastConfig),
@@ -62,6 +61,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
     }
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: []
 })
 export class AppModule { }
