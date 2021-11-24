@@ -15,7 +15,6 @@ export class AppComponent {
   showSpinner:boolean = false
   title = 'sistemaalimentos';
 
-
   constructor(private router: Router,private store : Store<fromApp.State>) { 
 
     this.store.dispatch(new authActions.AutoLogin())
