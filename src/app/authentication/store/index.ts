@@ -14,3 +14,8 @@ export const getIdUsuarioAuth = createSelector(
     state => state.UserActual.Id
 );
 
+
+export const getLoadingLogin = createSelector(
+    getUserFeatureStatus,
+    state => state.loading
+);

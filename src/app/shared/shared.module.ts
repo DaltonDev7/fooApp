@@ -5,12 +5,14 @@ import { NavComponent } from './nav/nav.component'
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
 @NgModule({
   declarations: [
-    NavComponent
+    NavComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     NgxPaginationModule,
     NavComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

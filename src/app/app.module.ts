@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +21,8 @@ import { tokenGetter } from './core/config/jwt-congif';
 import { TokenInterceptorService } from './core/interceptors/token-interceptor.service';
 import { NgbModule, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SharedModule } from './shared/shared.module';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    NgxSpinnerModule,
+    SharedModule,
     HttpClientModule,
     ToastrModule.forRoot(toastConfig),
     ReactiveFormsModule,
@@ -57,6 +61,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

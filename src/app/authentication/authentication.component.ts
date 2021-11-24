@@ -8,6 +8,7 @@ import { Alert } from '../core/enum/alert.enum';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../state/app.state';
 import * as AuthActions from 'src/app/authentication/store/auth.actions'
+import { getLoadingLogin } from './store';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class AuthenticationComponent implements OnInit {
 
   //atributos
   showViewRegistrar: boolean = false
+  showSpinner :boolean = false
   loginForm: FormGroup
   registerForm: FormGroup
 
