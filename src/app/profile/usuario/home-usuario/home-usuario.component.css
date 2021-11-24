@@ -17,3 +17,23 @@
 th{
     font-family: 'lato-regular';
 }
+
+.section-add-search{
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-buscar{
+    display: flex;
+}
+
+.section-button-buscar{
+    display: flex;
+    align-items: center;
+}
+
+.section-input{
+    display: flex;
+    align-items: center;
+}
+

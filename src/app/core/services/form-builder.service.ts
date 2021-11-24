@@ -40,22 +40,28 @@ export class FormBuilderService {
       ComidaExtra: [null],
     })
   }
+  
 
-  public getEditUserForm() {
+  public getEditUserForm(): FormGroup {
     return this.fb.group({
       Id: [null],
       UserName: [null, [Validators.required, Validators.minLength(3)]]
     })
   }
 
-  public getPasswordForm() {
+  public getPasswordForm(): FormGroup {
     return this.fb.group({
-      PassWordActual:  [null, [Validators.required, Validators.minLength(5)]],
+      PassWordActual: [null, [Validators.required, Validators.minLength(5)]],
       PassWord: [null, [Validators.required, Validators.minLength(5)]],
       PassWordConfirm: [null, [Validators.required, Validators.minLength(5)]]
     })
   }
 
+  public getBuscadorForm(): FormGroup {
+    return this.fb.group({
+      campoBuscador: [null,[Validators.required, Validators.minLength(3)]]
+    })
+  }
 
 
 }
